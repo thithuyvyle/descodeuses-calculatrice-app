@@ -1,0 +1,17 @@
+<!--  -->
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value.input1, formGroup.value.input2)"> 
+    <input type="number" formControlName="input1">
+    <select style="margin: 4px" formControlName="operation">       
+         @for (item of operateurs; track item){
+        <option [value]="item.value">{{item.op}}</option>
+        }
+    </select>
+    <input type="number" formControlName="input2">
+    <button type="submit" style="margin: 4px">Calculer</button>
+    <span [ngClass]="result < 0 ? 'red' : 'green' ">Résultat:{{result}}</span>
+           <!-- ou = {green: resultat > 0, rouge: resultat < 0}-->
+    <button type="button" style="margin: 4px" (click)="onInit()"> Bouton onInit </button>
+</form>
+
+
+
